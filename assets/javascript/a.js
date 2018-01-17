@@ -18,10 +18,15 @@
 
   firebase.initializeApp(config);
 
-    // Create a variable to reference the database
+
+  // Create a variable to reference the database
+
   var database = firebase.database();
 
-    // Initial Values
+ 
+
+  // Initial Values
+
   var name = "";
   var destination = "";
   var start1 = "";
@@ -34,14 +39,33 @@
   var frequency3 = "";
   var frequency4 = "";
   var frequency5 = "";
+  var currentTime ="";
+  var convertedTime = "";
 
-  // Capture Button Click for adding Employees
+  //Update current time every minute and display it
+
+  function updateTime(){
+
+    currentTime = moment();
+    convertedTime = moment(currentTime).format("HH:mm");
+    console.log("Current Time: " + convertedTime);
+    $("#timeChicago").html( "Current time in Chicago: "+ convertedTime );
+  }
+
+  updateTime();
+
+  setInterval(function(){
+    updateTime();
+    },60000);
+
+
+  //----------------------------------CLICK EVENT FOR ADDING NEW TRAINS-------------------------
+
   $("#add-user").on("click", function(event) {
     // Don't refresh the page!
     event.preventDefault();
 
-    // YOUR TASK!!!
-    // Code in the logic for storing and retrieving the most recent user.
+    // Storing and retrieving the most recent user.
       
     name = $("#name-input").val().trim();
     destination = $("#destination-input").val().trim();
@@ -74,45 +98,40 @@
     };
 
     
-
     // Uploads data to database
     database.ref().push(newTrain);
-
-      // Log everything 
+ 
       
-      console.log(newTrain.name);
-      console.log(newTrain.destination);
-      console.log(newTrain.start1);
-      console.log(newTrain.frequency);
+    console.log(newTrain.name);
+    console.log(newTrain.destination);
 
-      alert("Train added");
+    alert("Train added");
 
-      //clear boxes
+    //clear boxes
 
+    $("#name-input").val("");
+    $("#destination-input").val("");
+    $("#start1-input").val("");
+    $("#start2-input").val("");
+    $("#start3-input").val("");
+    $("#start4-input").val("");
+    $("#start5-input").val("");
+    $("#frequency1-input").val("");
+    $("#frequency2-input").val("");
+    $("#frequency3-input").val("");
+    $("#frequency4-input").val("");
+    $("#frequency5-input").val("");
 
-      $("#name-input").val("");
-      $("#destination-input").val("");
-      $("#start1-input").val("");
-      $("#start2-input").val("");
-      $("#start3-input").val("");
-      $("#start4-input").val("");
-      $("#start5-input").val("");
-      $("#frequency1-input").val("");
-      $("#frequency2-input").val("");
-      $("#frequency3-input").val("");
-      $("#frequency4-input").val("");
-      $("#frequency5-input").val("");
+  });
 
-});
-
-// Create a Firebase event for adding employee
-// to database and a row in HTML
+//--------------------------FIREBASE EVENT FOR ADDING EMPLOYEE------------------------------------
+//---------------------------to database and a row in HTML---------------------------------------
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   console.log(childSnapshot.val());
 
- //Store everything into a variable
+  //Store everything into a variable
 
   var trainName = childSnapshot.val().name;
   var trainDestination = childSnapshot.val().destination;
@@ -141,45 +160,43 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(trainStart5);
   console.log(trainFrequency5);
 
-  //Current Time
-  var currentTime = moment();
-  console.log("Current Time: " + moment(currentTime).format("HH:mm"));
-  
-    var randomFormat = "HH:mm";
-    //var convertedTime = moment(trainStart, randomFormat);
 
-    // Using scripts from moment.js write code below to complete each of the following.
+
+  //-------------------------UPDATE TIME-----------------------------------
     
-    //Confirm the format of Start time
-    //console.log(moment(convertedTime).format("HH:mm"));
+  //Update current time
+  
+//function updateTable(){
+
+  var randomFormat = "HH:mm";
+
+  var convertedTime1 = moment(trainStart1, randomFormat);
+  var convertedTime2 = moment(trainStart2, randomFormat);
+  var convertedTime3 = moment(trainStart3, randomFormat);
+  var convertedTime4 = moment(trainStart4, randomFormat);
+  var convertedTime5 = moment(trainStart5, randomFormat);
+
+  //minSince:  the the time since the first train Start time
 
 
-    var convertedTime1 = moment(trainStart1, randomFormat);
-    var convertedTime2 = moment(trainStart2, randomFormat);
-    var convertedTime3 = moment(trainStart3, randomFormat);
-    var convertedTime4 = moment(trainStart4, randomFormat);
-    var convertedTime5 = moment(trainStart5, randomFormat);
+function updateminSince(){
 
-    //minSince is the the time since the first train Start time, 
-    //or time to the future Start time
-
-
-    minSince1=moment(convertedTime1).diff(moment(), "minutes")
-    minSince2=moment(convertedTime2).diff(moment(), "minutes")
-    minSince3=moment(convertedTime3).diff(moment(), "minutes")
-    minSince4=moment(convertedTime4).diff(moment(), "minutes")
-    minSince5=moment(convertedTime5).diff(moment(), "minutes")
+  minSince1=moment(convertedTime1).diff(moment(), "minutes")
+  minSince2=moment(convertedTime2).diff(moment(), "minutes")
+  minSince3=moment(convertedTime3).diff(moment(), "minutes")
+  minSince4=moment(convertedTime4).diff(moment(), "minutes")
+  minSince5=moment(convertedTime5).diff(moment(), "minutes")
 
     if (minSince5<=0) {
         trainFrequency=trainFrequency5;
         minSince=-minSince5;
-        console.log("Fith train");
+        console.log("Fifth train");
     }
 
     else if (minSince4<=0) {
         trainFrequency=trainFrequency4;
         minSince=-minSince4;
-        console.log("Forth train");
+        console.log("Fourth train");
     }
 
     else if (minSince3<=0){
@@ -200,49 +217,61 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
         console.log("First train");
     }
 
-    console.log(minSince);
-    var minAway = trainFrequency-minSince%trainFrequency;
-    
+  console.log("Minutes since the last period start time" + minSince);
+
+}
+updateminSince();
+
+
+
+setInterval(function(){
+    updateminSince();
+    },4000);
 
 
 
 
-    //minAway is number of minutes until the next train
-    /*
 
-    var minSince=moment(convertedTime).diff(moment(), "minutes");
-    if (minSince<=0) {
+  //minAway to the next train
+  var minAway = trainFrequency-minSince%trainFrequency;  
+  var nextTrainMin = moment().add(minAway, "minutes");
+  var nextArrival = moment(nextTrainMin).format("HH:mm");
 
-    minSince=-minSince;
-    console.log(minSince);
-    var minAway = trainFrequency-minSince%trainFrequency;
-    }
+  console.log("Arrival Time: " + nextArrival);
 
-    else{
+  $("#TrainName").text(trainName);
+  $("#Destination").text(trainDestination);
+  $("#Frequency").text(trainFrequency);
+  $("#NextArrival").text(nextArrival);
+  $("MinutesAway").text(minAway);
 
-    console.log(minSince);
-    var minAway = minSince;
+  
+
+  //$("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" +
+   //trainFrequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
+
+  
+
+  
+
+  //setTimeout(function(){
+  //  emptyTable();
+  //  },9000);
+
+  
+
+
  
-    }
-    */
-    
-
-    //change minAway to the next train time
-
-    var nextTrainMin = moment().add(minAway, "minutes");
-
-    var nextArrival = moment(nextTrainMin).format("HH:mm");
-
-    console.log("Arrival Time: " + nextArrival);
 
 
+  //setInterval(function(){
+    //updateTable();
+    //},4000);
 
-    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
-
-  $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" +
-   trainFrequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
 });
+
+
 
     /*  // Handle the errors
     }, function(errorObject) {
