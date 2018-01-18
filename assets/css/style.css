@@ -1,0 +1,21 @@
+#timeChicago {
+font: 30px;
+color: brown;
+}
+
+#PDF {
+	position: absolute;
+	top: 300px;
+	width: 700px;
+	height: 50px;
+	background: white;
+	color: black;
+}
+
+.line {
+
+width: 150px;
+height:50px;
+background: lightblue;
+color: black;
+}

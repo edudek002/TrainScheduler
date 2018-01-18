@@ -12,6 +12,8 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
    
   </head>
 
@@ -19,39 +21,38 @@
 
     <div class="container">
 
-      <div id="timeChicago">Here goes time = </div>
+      <!-- Section on the left-->
 
-    
+      <div class="jumbotron text-center" style="background-color: orange; color:white">
+        <h1 class="display4">Chicago Transit Authority</h1>
+        <p class="lead"><h3>CTA Station - Randolph/Wabash Timetable</h3></p>
+        <p class="lead" id="timeChicago"></p>
+      </div>
 
-        <!-- Section on the left-->
-
-        <div class="jumbotron text-center" style="background-color: orange; color:white">
-          <h1 class="display4">ANYTIME IS TRAIN TIME</h1>
-          <p class="lead"><h3>Train Schedule</h3></p>
-        </div>
-
-  
-        
-        <!-- Gems are displayed here-->
+      <div class="row">
+        <button><h5 id="PDF"></h5></button>
+      </div>
 
       <div class="row"> 
 
-      <div class="col-lg-12">
+        <div class="col-lg-12">
 
-        <!-- Current Employees-->
+        <!-- Current Trains-->
           <div class="card-primary">
             <div class="card-heading">
+              <br>
+              <br>
               <h3 class="card-title"><strong>Current Train Schedule</strong></h3>
             </div>
             <div class="card-body">
               <table class="table table-hover" id='train-table'>
                 <thead>
                   <tr>
-                    <th id ="TrainName">< Train Name</th>
-                    <th id="Destination">Destination</th>
-                    <th id="Frequency">Frequency (min)</th>
-                    <th id="NextArrival">Next Arrival</th>
-                    <th id="MinutesAway">Minutes Away</th>
+                    <th>Train Name<div id ="TrainName"></div></th>
+                    <th>Destination<div id="Destination"></div></th>
+                    <th>Frequency (min)<div id="Frequency"></div></th>
+                    <th>Next Arrival<div id="NextArrival"></div></th>
+                    <th>Minutes Away<div id="MinutesAway"></div></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,15 +61,12 @@
             </div>
           </div>
 
-
-   
-      <!--Final number of wins (wins - losses) are displayed here-->
-
           <div class="card card-body"> 
 
             <div class="card-body-heading">
                   <h3 class="card-title">Add Train</h3>
             </div>
+
             <div class="card-body">
 
               <form role="form">
@@ -76,87 +74,78 @@
                   <label for="name-input">Train Name</label>
                   <input class="form-control" id="name-input" type="text">
                 </div>
+
                 <div class="form-group">
                   <label for="destination-input">Destination</label>
                   <input class="form-control" id="destination-input" type="text">
                 </div>
+
                 <div class="form-group">
-                  <label for="start1-input">First Train Time (HH:mm - military time)</label>
+                  <label for="start1-input">First Train (HH:mm - military time)</label>
                   <input class="form-control" id="start1-input" type="text">
                 </div>
 
                 <div class="form-group">
-
-                  <label for="frequency1-input">Frequency 1(min):</label>
-                  <input class="form-control" id="frequency1-input" type="text">
-                  
+                  <label for="frequency1-input">Frequency1 (min):</label>
+                  <input class="form-control" id="frequency1-input" type="text">  
                 </div>
 
                 <div class="form-group">
-                  <label for="start2-input">Morning Rush Hour Time (HH:mm - military time)</label>
+                  <label for="start2-input">Morning Rush Hour Begins (HH:mm - military time)</label>
                   <input class="form-control" id="start2-input" type="text">
                 </div>
 
                 <div class="form-group">
-
-                  <label for="frequency2-input">Frequency 2(min):</label>
-                  <input class="form-control" id="frequency2-input" type="text">
-                  
+                  <label for="frequency2-input">Frequency2 (min):</label>
+                  <input class="form-control" id="frequency2-input" type="text"> 
                 </div>
 
                 <div class="form-group">
-                  <label for="start3-input">Mid-day Train Time (HH:mm - military time)</label>
+                  <label for="start3-input">Mid-day Schedule Begins (HH:mm - military time)</label>
                   <input class="form-control" id="start3-input" type="text">
                 </div>
 
                 <div class="form-group">
-
-                  <label for="frequency3-input">Frequency 3(min):</label>
-                  <input class="form-control" id="frequency3-input" type="text">
-                  
+                  <label for="frequency3-input">Frequency3 (min):</label>
+                  <input class="form-control" id="frequency3-input" type="text">  
                 </div>
 
                 <div class="form-group">
-                  <label for="start4-input">Evening Rush Hour Time (HH:mm - military time)</label>
+                  <label for="start4-input">Evening Rush Hour Begins (HH:mm - military time)</label>
                   <input class="form-control" id="start4-input" type="text">
                 </div>
 
                 <div class="form-group">
-
-                  <label for="frequency4-input">Frequency 4(min):</label>
-                  <input class="form-control" id="frequency4-input" type="text">
-                  
+                  <label for="frequency4-input">Frequency4 (min):</label>
+                  <input class="form-control" id="frequency4-input" type="text">  
                 </div>
 
                 <div class="form-group">
-                  <label for="start5-input">Late Evening Train Time (HH:mm - military time)</label>
+                  <label for="start5-input">Late Evening Schedule Begins (HH:mm - military time)</label>
                   <input class="form-control" id="start5-input" type="text">
                 </div>
 
                 <div class="form-group">
-
-                  <label for="frequency5-input">Frequency 5(min):</label>
-                  <input class="form-control" id="frequency5-input" type="text">
-                  
+                  <label for="frequency5-input">Frequency5 (min):</label>
+                  <input class="form-control" id="frequency5-input" type="text">                  
                 </div>
                 
                 <button class="btn btn-default" id="add-user" type="submit">Submit</button>
               </form>
             </div>
-
           </div>
         </div>
       </div>
     </div>
 
 
-    <!-- JAVASCRIPT  -->
-    <!-- ========================================= -->
+  <!-- JAVASCRIPT  -->
+  <!-- ================================================================================================== -->
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     
-    <script type="text/javascript" src="assets/javascript/a.js"></script>
+  <script type="text/javascript" src="assets/javascript/a.js"></script>
 
     
     
