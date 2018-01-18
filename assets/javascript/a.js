@@ -1,30 +1,39 @@
-  var topics =["Pink Line", "Green Line", "Brown Line", "Orange line"];
-
-// function that creates buttons to access PDF
-
-
-function renderButtons(){
-
-    $("#PDF").empty();
-
-      for (var i=0; i<topics.length; i++){
-
-      var button = $("<button>");
-      button.addClass("line");
-      button.attr("data-train", topics[i]);
-      button.text(topics[i]);
-      button.attr('<img src="assets/images/brownLine.pdf">')
-      $("#PDF").append(button);
-      console.log(topics[i])
-    };
-}
-
-renderButtons();
+// Creates buttons with access to CTA schedule online
 
 
 
+var button = $("<button>");
+button.addClass("line1");
+button.attr("data-train", "Pink Line");
+button.text("Pink Line");
+//button.attr('<img src="assets/images/brownLine.pdf">')
+$("#pinkLine").append(button);
+      
 
-  var scheduleImage = $("<img>");
+var button = $("<button>");
+button.addClass("line2");
+button.attr("data-train", "Green Line");
+button.text("Green Line");
+//button.attr('<img src="assets/images/brownLine.pdf">')
+$("#greenLine").append(button);
+
+    
+var button = $("<button>");
+button.addClass("line3");
+button.attr("data-train", "Brown Line");
+button.text("Brown Line");
+//button.attr('<img src="assets/images/brownLine.pdf">')
+$("#brownLine").append(button);
+      
+    
+var button = $("<button>");
+button.addClass("line4");
+button.attr("data-train", "Orange line");
+button.text("Orange line");
+//button.attr('<img src="assets/images/brownLine.pdf">')
+$("#orangeLine").append(button);
+
+  
 
   // Initialize Firebase
 

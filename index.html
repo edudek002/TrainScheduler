@@ -21,7 +21,7 @@
 
     <div class="container">
 
-      <!-- Section on the left-->
+      <!-- JUMBOTRON-->
 
       <div class="jumbotron text-center" style="background-color: orange; color:white">
         <h1 class="display4">Chicago Transit Authority</h1>
@@ -29,8 +29,14 @@
         <p class="lead" id="timeChicago"></p>
       </div>
 
+      <!-- BUTTONS WITH LINKS TO CTA WEBSITE-->
+
       <div class="row">
-        <button><h5 id="PDF"></h5></button>
+        <button><h5><a id="pinkLine" href="http://www.transitchicago.com/assets/1/pinkline_schedules/randolph.pdf">
+          </a></h5></button>
+        <button><h5><a id="greenLine" href="http://www.transitchicago.com/assets/1/greenline_schedules/randolph.pdf"></a></h5></button>
+        <button><h5><a id="brownLine" href="http://www.transitchicago.com/assets/1/brownline_schedules/randolph.pdf"></a></h5></button>
+        <button><h5><a id="orangeLine" href="http://www.transitchicago.com/assets/1/orangeline_schedules/randolph.pdf"></a></h5></button>
       </div>
 
       <div class="row"> 
@@ -45,6 +51,8 @@
               <h3 class="card-title"><strong>Current Train Schedule</strong></h3>
             </div>
             <div class="card-body">
+
+              <!-- TABLE-->
               <table class="table table-hover" id='train-table'>
                 <thead>
                   <tr>
@@ -68,6 +76,8 @@
             </div>
 
             <div class="card-body">
+
+              <!-- FORM-->
 
               <form role="form">
                 <div class="form-group">

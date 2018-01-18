@@ -1,9 +1,11 @@
 #timeChicago {
-font: 30px;
-color: brown;
+
+	font: 30px;
+	color: brown;
 }
 
 #PDF {
+
 	position: absolute;
 	top: 300px;
 	width: 700px;
@@ -12,10 +14,34 @@ color: brown;
 	color: black;
 }
 
-.line {
+.line1 {
 
 width: 150px;
 height:50px;
-background: lightblue;
+background: pink;
+color: black;
+}
+
+.line2 {
+
+width: 150px;
+height:50px;
+background: green;
+color: black;
+}
+
+.line3 {
+
+width: 150px;
+height:50px;
+background: brown;
+color: black;
+}
+
+.line4 {
+
+width: 150px;
+height:50px;
+background: orange;
 color: black;
 }
