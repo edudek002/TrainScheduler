@@ -11,10 +11,10 @@
 
 You can see the real schedules here:
 
-![Main Page](assets/images/pinkLine.pdf)
-![Main Page](assets/images/greenLine.pdf)
-![Main Page](assets/images/brownLine.pdf)
-![Main Page](assets/images/orangeLine.pdf)
+![Main Page](/assets/images/pinkLine.pdf)
+![Main Page](/assets/images/greenLine.pdf)
+![Main Page](/assets/images/brownLine.pdf)
+![Main Page](/assets/images/orangeLine.pdf)
 
 
 
