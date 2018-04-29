@@ -40,6 +40,8 @@ You can find the service on
 
  2. Add a Train
 
+ * The lines have a different frequency depending on the time of the day, thus the user can enter 5 different segments: early morning, morning rush hour, mid-day, evening rush hour and late evening.
+
  ![Main Page](./assets/images/AddTrain.png)
 
- * The lines have a different frequency depending on the time of the day, thus the user can enter 5 different segments: early morning, morning rush hour, mid-day, evening rush hour and late evening.
+ 
