@@ -34,13 +34,12 @@ You can find the service on
 
 
 * The user can view the live schedule for 4 different lines.
+
 * The lines have a different frequency depending on the time of the day.
 
 
  2. Add a Train
 
- ![Main Page](.assets/images/AddTrain.png)
+ ![Main Page](./assets/images/AddTrain.png)
 
- * The lines have a different frequency depending on the time of the day.
-
-, thus the user can enter 5 different segments: early morning, morning rush hour, mid-day, evening rush hour and late evening.
+ * The lines have a different frequency depending on the time of the day, thus the user can enter 5 different segments: early morning, morning rush hour, mid-day, evening rush hour and late evening.
