@@ -4,17 +4,17 @@
 **Goal**
 
 
-* This app allows the user to find the next train at CTA Randolph/Wabash station. Four buttons allow access to the CTA website.
+* This app allows the user to find the next train at Chicago CTA Randolph/Wabash station. Four buttons allow access to the CTA website.
 
 * There are four different lines that stop at Randolph/Wabash station: Pink, Green, Brown and Orange. 
 
 
 You can see the real schedules here:
 
-![Main Page](assets/images/pinkLine.pdf)
-![Main Page](assets/images/greenLine.pdf)
-![Main Page](assets/images/brownLine.pdf)
-![Main Page](assets/images/orangeLine.pdf)
+![Pink](assets/images/pinkLine.pdf)
+![Green](assets/images/greenLine.pdf)
+![Brown](assets/images/brownLine.pdf)
+![Orange](assets/images/orangeLine.pdf)
 
 
 
