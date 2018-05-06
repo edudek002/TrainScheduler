@@ -4,6 +4,12 @@
 	color: brown;
 }
 
+.jumbotron {
+	
+	background-image: url("../images/CTAschedule.jpg");
+	background-size: cover;
+}
+
 #PDF {
 
 	position: absolute;
